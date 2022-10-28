@@ -5,7 +5,7 @@ repository: https://github.com/westy92/const-date-time
 funding: https://github.com/sponsors/westy92
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
 
 platforms:
   android:

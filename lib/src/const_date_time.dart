@@ -1,11 +1,13 @@
 class ConstDateTime implements DateTime {
   const ConstDateTime(int millisecondsSinceEpoch, {bool isUtc = false})
-      : _millisecondsSinceEpoch = millisecondsSinceEpoch, _isUtc = isUtc;
+      : _millisecondsSinceEpoch = millisecondsSinceEpoch,
+        _isUtc = isUtc;
   final int _millisecondsSinceEpoch;
   final bool _isUtc;
 
-  DateTime get dateTime => DateTime.fromMillisecondsSinceEpoch(
-      _millisecondsSinceEpoch, isUtc: _isUtc);
+  DateTime get dateTime =>
+      DateTime.fromMillisecondsSinceEpoch(_millisecondsSinceEpoch,
+          isUtc: _isUtc);
 
   @override
   DateTime add(Duration duration) {

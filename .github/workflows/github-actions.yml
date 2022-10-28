@@ -29,14 +29,10 @@ jobs:
       run: dart analyze --fatal-warnings .
 
     - name: Run tests
-      run: dart test --coverage .
-
-    - name: list files TODO remove
-      if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }}
-      run: ls -la .
+      run: dart test --coverage=coverage --reporter=json .
 
     - name: Upload code coverage
       if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }}
       uses: codecov/codecov-action@v1
       with:
-        file: ./const_date_time_test.dart.vm.json
+        file: ./coverage/const_date_time_test.dart.vm.json

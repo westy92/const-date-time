@@ -35,4 +35,4 @@ jobs:
       if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }}
       uses: codecov/codecov-action@v1
       with:
-        file: ./coverage/const_date_time_test.dart.vm.json
+        file: ./coverage/coverage.json

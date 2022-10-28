@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the subtract method from the ConstDateTime class, for the Dart programming language.">
+  <title>subtract method - ConstDateTime class - const_date_time library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">const_date_time</a></li>
+    <li><a href="../../const_date_time/const_date_time-library.html">const_date_time</a></li>
+    <li><a href="../../const_date_time/ConstDateTime-class.html">ConstDateTime</a></li>
+    <li class="self-crumb">subtract method</li>
+  </ol>
+  <div class="self-name">subtract</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">subtract</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.dart.dev/stable/2.18.3/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.dart.dev/stable/2.18.3/dart-core/DateTime-class.html">DateTime</a></span>
+<span class="name ">subtract</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="subtract-param-duration"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.18.3/dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span></span></li>
+</ol>)
+
+      <div class="features">override</div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Returns a new <a href="https://api.dart.dev/stable/2.18.3/dart-core/DateTime-class.html">DateTime</a> instance with <code>duration</code> subtracted from <a href="../../const_date_time/ConstDateTime-class.html">this</a>.</p>
+<pre class="language-dart"><code class="language-dart">final today = DateTime.now();
+final fiftyDaysAgo = today.subtract(const Duration(days: 50));
+</code></pre>
+<p>Notice that the duration being subtracted is actually 50 * 24 * 60 * 60
+seconds. If the resulting <code>DateTime</code> has a different daylight saving offset
+than <code>this</code>, then the result won't have the same time-of-day as <code>this</code>, and
+may not even hit the calendar date 50 days earlier.</p>
+<p>Be careful when working with dates in local time.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+DateTime subtract(Duration duration) {
+  return dateTime.subtract(duration);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">const_date_time</a></li>
+  <li><a href="../../const_date_time/const_date_time-library.html">const_date_time</a></li>
+  <li><a href="../../const_date_time/ConstDateTime-class.html">ConstDateTime</a></li>
+  <li class="self-crumb">subtract method</li>
+</ol>
+
+
+    <h5>ConstDateTime class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../const_date_time/ConstDateTime-class.html#constructors">Constructors</a></li>
+          <li><a href="../../const_date_time/ConstDateTime/ConstDateTime.html">ConstDateTime</a></li>
+          <li><a href="../../const_date_time/ConstDateTime/ConstDateTime.fromMicrosecondsSinceEpoch.html">fromMicrosecondsSinceEpoch</a></li>
+          <li><a href="../../const_date_time/ConstDateTime/ConstDateTime.fromMillisecondsSinceEpoch.html">fromMillisecondsSinceEpoch</a></li>
+          <li><a href="../../const_date_time/ConstDateTime/ConstDateTime.utc.html">utc</a></li>
+
+
+    <li class="section-title">
+      <a href="../../const_date_time/ConstDateTime-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../const_date_time/ConstDateTime/dateTime.html">dateTime</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/day.html">day</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/hashCode.html">hashCode</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/hour.html">hour</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/isUtc.html">isUtc</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/microsecond.html">microsecond</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/microsecondsSinceEpoch.html">microsecondsSinceEpoch</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/millisecond.html">millisecond</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/millisecondsSinceEpoch.html">millisecondsSinceEpoch</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/minute.html">minute</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/month.html">month</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.18.3/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/second.html">second</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/timeZoneName.html">timeZoneName</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/timeZoneOffset.html">timeZoneOffset</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/weekday.html">weekday</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/year.html">year</a></li>
+
+    <li class="section-title"><a href="../../const_date_time/ConstDateTime-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/add.html">add</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/compareTo.html">compareTo</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/difference.html">difference</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/isAfter.html">isAfter</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/isAtSameMomentAs.html">isAtSameMomentAs</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/isBefore.html">isBefore</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.18.3/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/subtract.html">subtract</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/toIso8601String.html">toIso8601String</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/toLocal.html">toLocal</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.18.3/dart-core/Object/toString.html">toString</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/toUtc.html">toUtc</a></li>
+
+    <li class="section-title"><a href="../../const_date_time/ConstDateTime-class.html#operators">Operators</a></li>
+    <li><a href="../../const_date_time/ConstDateTime/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    const_date_time
+      0.0.1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

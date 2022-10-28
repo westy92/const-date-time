@@ -44,11 +44,11 @@ jobs:
         file: ./coverage/lcov.info
 
     - name: Generate docs
-      if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }} # TODO && branch main
+      if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' && github.ref_name == 'main' }}
       run: dart doc
 
     - name: Publish docs
-      if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }} # TODO && branch main
+      if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' && github.ref_name == 'main' }}
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: doc/api

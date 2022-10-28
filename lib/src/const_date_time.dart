@@ -1,13 +1,100 @@
+import 'constructor_type.dart';
+
 class ConstDateTime implements DateTime {
-  const ConstDateTime(int millisecondsSinceEpoch, {bool isUtc = false})
-      : _millisecondsSinceEpoch = millisecondsSinceEpoch,
-        _isUtc = isUtc;
-  final int _millisecondsSinceEpoch;
+  const ConstDateTime(int year,
+      [int month = 1,
+      int day = 1,
+      int hour = 0,
+      int minute = 0,
+      int second = 0,
+      int millisecond = 0,
+      int microsecond = 0])
+      : this._internal(ConstructorType.components,
+            year: year,
+            month: month,
+            day: day,
+            hour: hour,
+            minute: minute,
+            second: second,
+            millisecond: millisecond,
+            microsecond: microsecond,
+            isUtc: false);
+
+  final ConstructorType _constructorType;
+  final int _year;
+  final int _month;
+  final int _day;
+  final int _hour;
+  final int _minute;
+  final int _second;
+  final int _millisecond;
+  final int _microsecond;
   final bool _isUtc;
 
-  DateTime get dateTime =>
-      DateTime.fromMillisecondsSinceEpoch(_millisecondsSinceEpoch,
-          isUtc: _isUtc);
+  const ConstDateTime.utc(int year,
+      [int month = 1,
+      int day = 1,
+      int hour = 0,
+      int minute = 0,
+      int second = 0,
+      int millisecond = 0,
+      int microsecond = 0])
+      : this._internal(ConstructorType.utc,
+            year: year,
+            month: month,
+            day: day,
+            hour: hour,
+            minute: minute,
+            second: second,
+            millisecond: millisecond,
+            microsecond: microsecond,
+            isUtc: true);
+
+  const ConstDateTime.fromMillisecondsSinceEpoch(int millisecondsSinceEpoch,
+      {bool isUtc = false})
+      : this._internal(ConstructorType.fromMillisecondsSinceEpoch,
+            millisecond: millisecondsSinceEpoch, isUtc: isUtc);
+
+  const ConstDateTime.fromMicrosecondsSinceEpoch(int microsecondsSinceEpoch,
+      {bool isUtc = false})
+      : this._internal(ConstructorType.fromMicrosecondsSinceEpoch,
+            microsecond: microsecondsSinceEpoch, isUtc: isUtc);
+
+  const ConstDateTime._internal(ConstructorType constructorType,
+      {int year = 0,
+      int month = 0,
+      int day = 0,
+      int hour = 0,
+      int minute = 0,
+      int second = 0,
+      int millisecond = 0,
+      int microsecond = 0,
+      bool isUtc = false})
+      : _constructorType = constructorType,
+        _year = year,
+        _month = month,
+        _day = day,
+        _hour = hour,
+        _minute = minute,
+        _second = second,
+        _millisecond = millisecond,
+        _microsecond = microsecond,
+        _isUtc = isUtc;
+
+  DateTime get dateTime {
+    switch (_constructorType) {
+      case ConstructorType.components:
+        return DateTime(_year, _month, _day, _hour, _minute, _second,
+            _millisecond, _microsecond);
+      case ConstructorType.utc:
+        return DateTime.utc(_year, _month, _day, _hour, _minute, _second,
+            _millisecond, _microsecond);
+      case ConstructorType.fromMillisecondsSinceEpoch:
+        return DateTime.fromMillisecondsSinceEpoch(_millisecond, isUtc: _isUtc);
+      case ConstructorType.fromMicrosecondsSinceEpoch:
+        return DateTime.fromMicrosecondsSinceEpoch(_microsecond, isUtc: _isUtc);
+    }
+  }
 
   @override
   DateTime add(Duration duration) {

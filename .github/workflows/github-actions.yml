@@ -2,6 +2,9 @@ name: build
 
 on: [push, pull_request]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -31,8 +34,21 @@ jobs:
         dart pub global activate coverage
         dart pub global run coverage:test_with_coverage
 
+    - name: Validate example
+      run: dart run example/const_date_time_example.dart
+
     - name: Upload code coverage
       if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }}
       uses: codecov/codecov-action@v1
       with:
         file: ./coverage/lcov.info
+
+    - name: Generate docs
+      if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }}
+      run: dart doc
+
+    - name: Publish docs
+      if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' && github.ref_name == 'main' }}
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: doc/api

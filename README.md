@@ -1,39 +1,66 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# const-date-time
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+[![Build Status](https://github.com/westy92/const-date-time/actions/workflows/github-actions.yml/badge.svg)](https://github.com/westy92/const-date-time/actions/workflows/github-actions.yml?query=branch%3Amain)
+[![Code Coverage](https://codecov.io/gh/westy92/const-date-time/branch/master/graph/badge.svg)](https://codecov.io/gh/westy92/const-date-time)
+[![Funding Status](https://img.shields.io/github/sponsors/westy92)](https://github.com/sponsors/westy92)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+A drop-in replacement for Dart's `DateTime` class with `const` constructors.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Install the package:
+```bash
+flutter pub add const-date-time
+```
+or
+```bash
+dart pub add const-date-time
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+You can use a `ConstDateTime` anywhere a `DateTime` is expected. All major `DateTime` constructors have a `const` version.
 
 ```dart
-const like = 'sample';
+import 'package:const_date_time/const_date_time.dart';
+
+// const constructors
+final year = const ConstDateTime(2022);
+final date = const ConstDateTime(2022, 10, 27);
+final dateTime = const ConstDateTime(2022, 10, 27, 12, 34, 56, 789, 10);
+
+final yearUtc = const ConstDateTime.utc(2022);
+final dateUtc = const ConstDateTime.utc(2022, 10, 27);
+final dateTimeUtc = const ConstDateTime.utc(2022, 10, 27, 12, 34, 56, 789, 1011);
+
+final ms = const ConstDateTime.fromMillisecondsSinceEpoch(1666931562000);
+final msUtc = const ConstDateTime.fromMillisecondsSinceEpoch(1666931562000, isUtc: true);
+
+final us = const ConstDateTime.fromMicrosecondsSinceEpoch(1666931562000000);
+final usUtc = const ConstDateTime.fromMicrosecondsSinceEpoch(1666931562000000, isUtc: true);
 ```
 
-## Additional information
+You can access the underlying `DateTime` object directly:
+```dart
+final cdt = const ConstDateTime(2022);
+final DateTime dt = cdt.dateTime;
+// other getters are available as well:
+final int dtYear = dt.year;
+final int dtWeekday = dt.weekday;
+```
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Don't forget other `DateTime` methods too!
+```dart
+final constDateTime = const ConstDateTime(2022);
+
+constDateTime.add(Duration(minutes: 5));
+constDateTime.toIso8601String();
+```
+
+## Sponsor
+
+Please consider [sponsoring my work](https://github.com/sponsors/westy92) to ensure this library receives the attention it deserves.
+
+## License
+
+const-date-time is released under the MIT License.

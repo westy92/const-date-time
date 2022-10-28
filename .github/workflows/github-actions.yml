@@ -51,4 +51,4 @@ jobs:
       if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }} # TODO && branch main
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        folder: doc
+        folder: doc/api

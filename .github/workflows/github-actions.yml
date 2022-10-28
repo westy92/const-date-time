@@ -39,9 +39,9 @@ jobs:
 
     - name: Upload code coverage
       if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }}
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v3
       with:
-        file: ./coverage/lcov.info
+        files: ./coverage/lcov.info
 
     - name: Generate docs
       if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }}

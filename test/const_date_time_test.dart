@@ -18,24 +18,28 @@ void main() {
     });
 
     test('fromMillisecondsSinceEpoch', () {
-      var constDateTime = const ConstDateTime.fromMillisecondsSinceEpoch(12345678);
+      var constDateTime =
+          const ConstDateTime.fromMillisecondsSinceEpoch(12345678);
       var dateTime = DateTime.fromMillisecondsSinceEpoch(12345678);
       expect(constDateTime == dateTime, isTrue);
       expect(dateTime == constDateTime, isTrue);
 
-      constDateTime = const ConstDateTime.fromMillisecondsSinceEpoch(12345678, isUtc: true);
+      constDateTime =
+          const ConstDateTime.fromMillisecondsSinceEpoch(12345678, isUtc: true);
       dateTime = DateTime.fromMillisecondsSinceEpoch(12345678, isUtc: true);
       expect(constDateTime == dateTime, isTrue);
       expect(dateTime == constDateTime, isTrue);
     });
 
     test('fromMicrosecondsSinceEpoch', () {
-      var constDateTime = const ConstDateTime.fromMicrosecondsSinceEpoch(12345678);
+      var constDateTime =
+          const ConstDateTime.fromMicrosecondsSinceEpoch(12345678);
       var dateTime = DateTime.fromMicrosecondsSinceEpoch(12345678);
       expect(constDateTime == dateTime, isTrue);
       expect(dateTime == constDateTime, isTrue);
 
-      constDateTime = const ConstDateTime.fromMicrosecondsSinceEpoch(12345678, isUtc: true);
+      constDateTime =
+          const ConstDateTime.fromMicrosecondsSinceEpoch(12345678, isUtc: true);
       dateTime = DateTime.fromMicrosecondsSinceEpoch(12345678, isUtc: true);
       expect(constDateTime == dateTime, isTrue);
       expect(dateTime == constDateTime, isTrue);
@@ -49,7 +53,8 @@ void main() {
       expect(constDateTime == dateTime, isTrue);
       expect(dateTime == constDateTime, isTrue);
 
-      constDateTime = const ConstDateTime.fromMillisecondsSinceEpoch(0, isUtc: true);
+      constDateTime =
+          const ConstDateTime.fromMillisecondsSinceEpoch(0, isUtc: true);
       dateTime = DateTime.fromMillisecondsSinceEpoch(0, isUtc: true);
       expect(constDateTime == dateTime, isTrue);
       expect(dateTime == constDateTime, isTrue);
@@ -61,8 +66,10 @@ void main() {
     });
 
     test('add', () {
-      var constDateTime = const ConstDateTime.fromMillisecondsSinceEpoch(0).add(Duration(seconds: 5));
-      var dateTime = DateTime.fromMillisecondsSinceEpoch(0).add(Duration(seconds: 5));
+      var constDateTime = const ConstDateTime.fromMillisecondsSinceEpoch(0)
+          .add(Duration(seconds: 5));
+      var dateTime =
+          DateTime.fromMillisecondsSinceEpoch(0).add(Duration(seconds: 5));
       expect(constDateTime == dateTime, isTrue);
       expect(dateTime == constDateTime, isTrue);
     });
@@ -81,7 +88,8 @@ void main() {
       var dateTime = DateTime.fromMillisecondsSinceEpoch(0);
       expect(constDateTime.hashCode == dateTime.hashCode, isTrue);
 
-      constDateTime = const ConstDateTime.fromMillisecondsSinceEpoch(0, isUtc: true);
+      constDateTime =
+          const ConstDateTime.fromMillisecondsSinceEpoch(0, isUtc: true);
       dateTime = DateTime.fromMillisecondsSinceEpoch(0, isUtc: true);
       expect(constDateTime.hashCode == dateTime.hashCode, isTrue);
 

@@ -39,3 +39,10 @@ jobs:
       uses: codecov/codecov-action@v1
       with:
         file: ./coverage/lcov.info
+
+    - name: Publish docs
+      if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }} # TODO && branch main
+      run: |
+        dart pub global activate gh_pages
+        dart doc
+        gh_pages doc

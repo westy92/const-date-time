@@ -2,6 +2,9 @@ name: build
 
 on: [push, pull_request]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -40,11 +43,12 @@ jobs:
       with:
         file: ./coverage/lcov.info
 
+    - name: Generate docs
+      if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }} # TODO && branch main
+      run: dart doc
+
     - name: Publish docs
       if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }} # TODO && branch main
-      run: |
-        dart pub global activate gh_pages
-        dart doc
-        git config --global user.email "westy92@gmail.com"
-        git config --global user.name "Seth Westphal"
-        gh_pages doc
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: doc

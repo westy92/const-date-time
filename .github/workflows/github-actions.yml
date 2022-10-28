@@ -8,8 +8,10 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        sdk: [stable, beta, dev]
+        #os: [ubuntu-latest, windows-latest, macos-latest]
+        #sdk: [stable, beta, dev]
+        os: [ubuntu-latest]
+        sdk: [stable]
 
     steps:
     - uses: actions/checkout@v3
@@ -28,6 +30,10 @@ jobs:
 
     - name: Run tests
       run: dart test --coverage .
+
+    - name: list files TODO remove
+      if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }}
+      run: ls -la .
 
     - name: Upload code coverage
       if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }}

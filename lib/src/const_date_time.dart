@@ -1,9 +1,4 @@
-enum ConstructorType {
-  utc,
-  components,
-  fromMillisecondsSinceEpoch,
-  fromMicrosecondsSinceEpoch;
-}
+import 'constructor_type.dart';
 
 class ConstDateTime implements DateTime {
   const ConstDateTime(int year,
@@ -75,7 +70,8 @@ class ConstDateTime implements DateTime {
       int millisecond = 0,
       int microsecond = 0,
       bool isUtc = false})
-      : _year = year,
+      : _constructorType = constructorType,
+        _year = year,
         _month = month,
         _day = day,
         _hour = hour,
@@ -83,8 +79,7 @@ class ConstDateTime implements DateTime {
         _second = second,
         _millisecond = millisecond,
         _microsecond = microsecond,
-        _isUtc = isUtc,
-        _constructorType = constructorType;
+        _isUtc = isUtc;
 
   DateTime get dateTime {
     switch (_constructorType) {

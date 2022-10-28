@@ -31,6 +31,9 @@ jobs:
         dart pub global activate coverage
         dart pub global run coverage:test_with_coverage
 
+    - name: Validate example
+      run: dart run example/const_date_time_example.dart
+
     - name: Upload code coverage
       if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }}
       uses: codecov/codecov-action@v1

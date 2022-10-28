@@ -45,4 +45,6 @@ jobs:
       run: |
         dart pub global activate gh_pages
         dart doc
+        git config --global user.email "westy92@gmail.com"
+        git config --global user.name "Seth Westphal"
         gh_pages doc

@@ -27,8 +27,9 @@ jobs:
       run: dart analyze --fatal-warnings .
 
     - name: Run tests
-      run: dart pub global activate coverage
-      run: dart pub global run coverage:test_with_coverage
+      run: |
+        dart pub global activate coverage
+        dart pub global run coverage:test_with_coverage
 
     - name: Upload code coverage
       if: ${{ matrix.sdk == 'stable' && matrix.os == 'ubuntu-latest' }}

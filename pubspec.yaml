@@ -4,7 +4,8 @@ version: 1.0.0
 repository: https://github.com/westy92/const-date-time
 documentation: https://westy92.github.io/const-date-time/
 issue_tracker: https://github.com/westy92/const-date-time/issues
-funding: https://github.com/sponsors/westy92
+funding:
+  - https://github.com/sponsors/westy92
 
 environment:
   sdk: '>=2.18.0 <3.0.0'

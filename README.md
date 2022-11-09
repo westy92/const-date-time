@@ -1,7 +1,7 @@
 # const-date-time
 
 [![Build Status](https://github.com/westy92/const-date-time/actions/workflows/github-actions.yml/badge.svg)](https://github.com/westy92/const-date-time/actions/workflows/github-actions.yml?query=branch%3Amain)
-[![Code Coverage](https://codecov.io/gh/westy92/const-date-time/branch/master/graph/badge.svg)](https://codecov.io/gh/westy92/const-date-time)
+[![Code Coverage](https://codecov.io/gh/westy92/const-date-time/branch/main/graph/badge.svg)](https://codecov.io/gh/westy92/const-date-time)
 [![Funding Status](https://img.shields.io/github/sponsors/westy92)](https://github.com/sponsors/westy92)
 
 A drop-in replacement for Dart's `DateTime` class with `const` constructors.

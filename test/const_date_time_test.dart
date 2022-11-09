@@ -134,7 +134,8 @@ void main() {
     test('toLocal', () {
       var constDateTime = const ConstDateTime(1);
       print(constDateTime.toIso8601String());
-      expect(constDateTime.toIso8601String() == '0001-01-01T00:00:00.000', isTrue);
+      expect(
+          constDateTime.toIso8601String() == '0001-01-01T00:00:00.000', isTrue);
     });
   });
 

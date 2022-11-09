@@ -74,11 +74,68 @@ void main() {
       expect(dateTime == constDateTime, isTrue);
     });
 
-    test('coompareTo', () {
+    test('subtract', () {
+      var constDateTime = const ConstDateTime.fromMillisecondsSinceEpoch(0)
+          .subtract(Duration(seconds: 5));
+      var dateTime =
+          DateTime.fromMillisecondsSinceEpoch(0).subtract(Duration(seconds: 5));
+      expect(constDateTime == dateTime, isTrue);
+      expect(dateTime == constDateTime, isTrue);
+    });
+
+    test('compareTo', () {
       var constDateTime = const ConstDateTime.fromMillisecondsSinceEpoch(0);
       var dateTime = DateTime.fromMillisecondsSinceEpoch(0);
       expect(constDateTime.compareTo(dateTime) == 0, isTrue);
       expect(dateTime.compareTo(constDateTime) == 0, isTrue);
+    });
+
+    test('difference', () {
+      var start = const ConstDateTime.fromMillisecondsSinceEpoch(0);
+      var end = const ConstDateTime.fromMillisecondsSinceEpoch(0)
+          .add(Duration(hours: -5));
+      expect(start.difference(end).inHours == 5, isTrue);
+    });
+
+    test('isAfter', () {
+      var start = const ConstDateTime.fromMillisecondsSinceEpoch(0);
+      var end = const ConstDateTime.fromMillisecondsSinceEpoch(0)
+          .add(Duration(hours: -5));
+      expect(start.isAfter(end), isTrue);
+      expect(start.isAfter(start), isFalse);
+    });
+
+    test('isBefore', () {
+      var start = const ConstDateTime.fromMillisecondsSinceEpoch(0);
+      var end = const ConstDateTime.fromMillisecondsSinceEpoch(0)
+          .add(Duration(hours: 5));
+      expect(start.isBefore(end), isTrue);
+      expect(start.isBefore(start), isFalse);
+    });
+
+    test('isAtSameMomentAs', () {
+      var start = const ConstDateTime.fromMillisecondsSinceEpoch(0);
+      var end = const ConstDateTime.fromMillisecondsSinceEpoch(0)
+          .add(Duration(hours: 5));
+      expect(start.isAtSameMomentAs(end), isFalse);
+      expect(start.isAtSameMomentAs(start), isTrue);
+    });
+
+    test('toUtc', () {
+      var constDateTime = const ConstDateTime.utc(0);
+      expect(constDateTime.toUtc() == constDateTime, isTrue);
+    });
+
+    test('toLocal', () {
+      var constDateTime = const ConstDateTime(0);
+      expect(constDateTime.toLocal() == constDateTime, isTrue);
+    });
+
+    test('toLocal', () {
+      var constDateTime = const ConstDateTime(1);
+      print(constDateTime.toIso8601String());
+      expect(
+          constDateTime.toIso8601String() == '0001-01-01T00:00:00.000', isTrue);
     });
   });
 
@@ -108,6 +165,24 @@ void main() {
       expect(constDateTime.second == 5, isTrue);
       expect(constDateTime.millisecond == 6, isTrue);
       expect(constDateTime.microsecond == 7, isTrue);
+    });
+
+    test('millisecondsSinceEpoch', () {
+      const ms = 12345;
+      const constDateTime = ConstDateTime.fromMillisecondsSinceEpoch(ms);
+      expect(constDateTime.millisecondsSinceEpoch == ms, isTrue);
+    });
+
+    test('weekday', () {
+      const constDateTime = ConstDateTime(2022, 11, 8);
+      expect(constDateTime.weekday == DateTime.tuesday, isTrue);
+    });
+
+    test('timezone', () {
+      const constDateTime = ConstDateTime.utc(2022, 1, 1);
+      expect(constDateTime.timeZoneName == 'UTC', isTrue);
+      expect(constDateTime.timeZoneOffset.inHours == 0, isTrue);
+      expect(constDateTime.timeZoneOffset.inMinutes == 0, isTrue);
     });
   });
 }

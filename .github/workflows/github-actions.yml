@@ -34,6 +34,11 @@ jobs:
         dart pub global activate coverage
         dart pub global run coverage:test_with_coverage
 
+    - name: Run pana
+      run: |
+        dart pub global activate pana
+        dart pub global run pana --exit-code-threshold 0 --no-warning .
+
     - name: Validate example
       run: dart run example/const_date_time_example.dart
 

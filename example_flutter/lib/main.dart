@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   const title = 'Flutter Web Demo';
-  final duration = DateTime.now().difference(const ConstDateTime(0));
-
+  final now = DateTime.now();
   runApp(MaterialApp(
     title: title,
     home: Scaffold(
@@ -12,7 +11,13 @@ void main() {
         title: const Text(title),
       ),
       body: Center(
-        child: Text(duration.toString()),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(now.difference(DateTime(0)).toString()),
+            Text(now.difference(const ConstDateTime(0)).toString()),
+          ],
+        ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     ),
   ));

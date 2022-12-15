@@ -29,6 +29,10 @@ jobs:
     - name: Analyze code
       run: dart analyze --fatal-warnings .
 
+    - name: Run test on Chrome
+      run: dart test --platform chrome
+      continue-on-error: true
+
     - name: Run tests
       run: |
         dart pub global activate coverage

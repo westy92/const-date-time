@@ -203,7 +203,7 @@ class ConstDateTime implements DateTime {
     // Returning [millisecondsSinceEpoch] in this case will prevent the error from being reported.
     //
     // @see https://github.com/dart-lang/sdk/blob/56e581aa3415858bbaf22bee23be705a68f8a03e/sdk/lib/_internal/js_runtime/lib/core_patch.dart#L342
-    if (invocation.isGetter
+    if (_kIsWeb && invocation.isGetter
         // Flutter web performs minified in release mode, resulting in not getting the correct memberName.
         /* && invocation.memberName == #_value */) {
       return dateTime.millisecondsSinceEpoch;
@@ -211,3 +211,6 @@ class ConstDateTime implements DateTime {
     return super.noSuchMethod(invocation);
   }
 }
+
+/// @see [kIsWeb](https://api.flutter.dev/flutter/foundation/kIsWeb-constant.html)
+const bool _kIsWeb = identical(0, 0.0);

@@ -1,4 +1,4 @@
-# const-date-time
+# const_date_time
 
 [![Build Status](https://github.com/westy92/const-date-time/actions/workflows/github-actions.yml/badge.svg)](https://github.com/westy92/const-date-time/actions/workflows/github-actions.yml?query=branch%3Amain)
 [![Code Coverage](https://codecov.io/gh/westy92/const-date-time/branch/main/graph/badge.svg)](https://codecov.io/gh/westy92/const-date-time)

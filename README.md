@@ -10,11 +10,11 @@ A drop-in replacement for Dart's `DateTime` class with `const` constructors.
 
 Install the package:
 ```bash
-flutter pub add const-date-time
+flutter pub add const_date_time
 ```
 or
 ```bash
-dart pub add const-date-time
+dart pub add const_date_time
 ```
 
 ## Usage
@@ -63,4 +63,4 @@ Please consider [sponsoring my work](https://github.com/sponsors/westy92) to ens
 
 ## License
 
-const-date-time is released under the MIT License.
+const_date_time is released under the MIT License.

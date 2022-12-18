@@ -1,6 +1,8 @@
 import 'package:const_date_time/const_date_time.dart';
 import 'package:test/test.dart';
 
+const bool _kIsWeb = identical(0, 0.0);
+
 void main() {
   group('Test constructors', () {
     test('default', () {
@@ -97,6 +99,14 @@ void main() {
       expect(start.difference(end).inHours == 5, isTrue);
     });
 
+    test('difference with DateTime', () {
+      final d1 = DateTime(2022, 11, 11, 0);
+      final d2 = const ConstDateTime(2022, 11, 11, 1);
+      const delta = Duration(hours: 1);
+      expect(d1.difference(d2), -delta);
+      expect(d2.difference(d1), delta);
+    });
+
     test('isAfter', () {
       var start = const ConstDateTime.fromMillisecondsSinceEpoch(0);
       var end = const ConstDateTime.fromMillisecondsSinceEpoch(0)
@@ -157,14 +167,14 @@ void main() {
 
     test('date components', () {
       var constDateTime = const ConstDateTime(0, 1, 2, 3, 4, 5, 6, 7);
-      expect(constDateTime.year == 0, isTrue);
-      expect(constDateTime.month == 1, isTrue);
-      expect(constDateTime.day == 2, isTrue);
-      expect(constDateTime.hour == 3, isTrue);
-      expect(constDateTime.minute == 4, isTrue);
-      expect(constDateTime.second == 5, isTrue);
-      expect(constDateTime.millisecond == 6, isTrue);
-      expect(constDateTime.microsecond == 7, isTrue);
+      expect(constDateTime.year, 0);
+      expect(constDateTime.month, 1);
+      expect(constDateTime.day, 2);
+      expect(constDateTime.hour, 3);
+      expect(constDateTime.minute, 4);
+      expect(constDateTime.second, 5);
+      expect(constDateTime.millisecond, 6);
+      expect(constDateTime.microsecond, _kIsWeb ? 0 : 7);
     });
 
     test('millisecondsSinceEpoch', () {

@@ -195,4 +195,24 @@ class ConstDateTime implements DateTime {
   bool operator ==(Object other) {
     return dateTime == other;
   }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) {
+    // Note: This solution is only valid on Flutter 3.3 / Dart 2.18
+    //
+    // On the Web platform, the [DateTime.difference] method reads the `other._value` variable internally.
+    // ConstDateTime does not have a `_value` variable, which leads to errors when running
+    // Returning [millisecondsSinceEpoch] in this case will prevent the error from being reported.
+    //
+    // @see https://github.com/dart-lang/sdk/blob/56e581aa3415858bbaf22bee23be705a68f8a03e/sdk/lib/_internal/js_runtime/lib/core_patch.dart#L342
+    if (_kIsWeb && invocation.isGetter && !invocation.isSetter
+        // Flutter web performs minified in release mode, resulting in not getting the correct memberName.
+        /* && invocation.memberName == #_value */) {
+      return dateTime.millisecondsSinceEpoch;
+    }
+    return super.noSuchMethod(invocation);
+  }
 }
+
+/// @see [kIsWeb](https://api.flutter.dev/flutter/foundation/kIsWeb-constant.html)
+const bool _kIsWeb = identical(0, 0.0);

@@ -9,10 +9,13 @@ A drop-in replacement for Dart's `DateTime` class with `const` constructors.
 ## Getting started
 
 Install the package:
+
 ```bash
 flutter pub add const_date_time
 ```
+
 or
+
 ```bash
 dart pub add const_date_time
 ```
@@ -41,6 +44,7 @@ final usUtc = const ConstDateTime.fromMicrosecondsSinceEpoch(1666931562000000, i
 ```
 
 You can access the underlying `DateTime` object directly:
+
 ```dart
 final cdt = const ConstDateTime(2022);
 final DateTime dt = cdt.dateTime;
@@ -50,6 +54,7 @@ final int dtWeekday = dt.weekday;
 ```
 
 Don't forget other `DateTime` methods too!
+
 ```dart
 final constDateTime = const ConstDateTime(2022);
 

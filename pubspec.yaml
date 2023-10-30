@@ -1,6 +1,6 @@
 name: const_date_time
 description: A drop-in replacement for Dart's DateTime class with const constructors.
-version: 1.0.3
+version: 1.0.4
 repository: https://github.com/westy92/const-date-time
 issue_tracker: https://github.com/westy92/const-date-time/issues
 funding:
@@ -18,7 +18,7 @@ platforms:
   windows:
 
 dev_dependencies:
-  lints: ^2.0.0
+  lints: ^3.0.0
   test: ^1.16.0
 
 topics:

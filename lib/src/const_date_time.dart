@@ -197,6 +197,11 @@ class ConstDateTime implements DateTime {
   }
 
   @override
+  String toString() {
+    return dateTime.toString();
+  }
+
+  @override
   dynamic noSuchMethod(Invocation invocation) {
     // Note: This solution is only valid on Flutter 3.3 / Dart 2.18
     //

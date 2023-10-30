@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: dart-lang/setup-dart@v1.3
+    - uses: dart-lang/setup-dart@v1
       with:
         sdk: ${{ matrix.sdk }}
 

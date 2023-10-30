@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+- Add `toString()`. ([#8](https://github.com/westy92/const-date-time/pull/8), thanks @ohitsdaniel!)
+
 ## 1.0.3
 
 - Add `topics` to `pubspec.yaml`.

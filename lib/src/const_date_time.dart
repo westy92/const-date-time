@@ -217,6 +217,11 @@ class ConstDateTime implements DateTime {
     }
     return super.noSuchMethod(invocation);
   }
+
+  /// As `ConstDateTime` is a decorator type on top of `DateTime`
+  /// we treat it as the ~same~ type for Equatability checks.
+  @override
+  Type get runtimeType => DateTime;
 }
 
 /// @see [kIsWeb](https://api.flutter.dev/flutter/foundation/kIsWeb-constant.html)

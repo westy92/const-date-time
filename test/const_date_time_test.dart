@@ -200,5 +200,12 @@ void main() {
       var dateTime = DateTime(0, 1, 2, 3, 4, 5, 6, 7);
       expect(constDateTime.toString() == dateTime.toString(), isTrue);
     });
+
+    test('runtimeType', () {
+      var constDateTime = const ConstDateTime(0, 1, 2, 3, 4, 5, 6, 7);
+      var dateTime = DateTime(0, 1, 2, 3, 4, 5, 6, 7);
+
+      expect(constDateTime.runtimeType == dateTime.runtimeType, isTrue);
+    });
   });
 }

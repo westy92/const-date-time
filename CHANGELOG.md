@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0
+
+- Overrides `runtimeType`. ([#9](https://github.com/westy92/const-date-time/pull/9), thanks @ohitsdaniel!)
+
 ## 1.0.4
 
 - Add `toString()`. ([#8](https://github.com/westy92/const-date-time/pull/8), thanks @ohitsdaniel!)

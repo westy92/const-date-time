@@ -1,4 +1,5 @@
 import 'package:const_date_time/const_date_time.dart';
+import 'package:const_date_time/src/to_const_date_time.dart';
 
 final year = const ConstDateTime(2022);
 final date = const ConstDateTime(2022, 10, 27);
@@ -21,6 +22,8 @@ final cdt = const ConstDateTime(2022);
 final DateTime dt = cdt.dateTime;
 final int dtYear = dt.year;
 final int dtWeekday = dt.weekday;
+
+final ConstDateTime cdtFromDt = DateTime(2024).toConstDateTime();
 
 void main() {
   final constDateTime = const ConstDateTime(0);

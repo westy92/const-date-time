@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+
+- Add `DateTime` extension to convert to `ConstDateTime`. ([#14](https://github.com/westy92/const-date-time/pull/14), thanks @jttuboi!)
+
 ## 1.1.0
 
 - Overrides `runtimeType`. ([#10](https://github.com/westy92/const-date-time/pull/10), thanks @ohitsdaniel!)

@@ -62,6 +62,13 @@ constDateTime.add(Duration(minutes: 5));
 constDateTime.toIso8601String();
 ```
 
+You can convert a `DateTime` to a `ConstDateTime`.
+
+```dart
+final dateTime = DateTime(2024);
+final ConstDateTime constDateTime = dateTime.toConstDateTime();
+```
+
 ## Sponsor
 
 Please consider [sponsoring my work](https://github.com/sponsors/westy92) to ensure this library receives the attention it deserves.

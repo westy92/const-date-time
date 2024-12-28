@@ -4,3 +4,4 @@
 library const_date_time;
 
 export 'src/const_date_time.dart';
+export 'src/to_const_date_time.dart';

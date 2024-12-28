@@ -67,6 +67,12 @@ void main() {
       expect(dateTime == constDateTime, isFalse);
     });
 
+    test('toString', () {
+      var constDateTime = const ConstDateTime(0, 1, 2, 3, 4, 5, 6, 7);
+      var dateTime = DateTime(0, 1, 2, 3, 4, 5, 6, 7);
+      expect(constDateTime.toString() == dateTime.toString(), isTrue);
+    });
+
     test('add', () {
       var constDateTime = const ConstDateTime.fromMillisecondsSinceEpoch(0)
           .add(Duration(seconds: 5));
@@ -193,12 +199,6 @@ void main() {
       expect(constDateTime.timeZoneName == 'UTC', isTrue);
       expect(constDateTime.timeZoneOffset.inHours == 0, isTrue);
       expect(constDateTime.timeZoneOffset.inMinutes == 0, isTrue);
-    });
-
-    test('toString', () {
-      var constDateTime = const ConstDateTime(0, 1, 2, 3, 4, 5, 6, 7);
-      var dateTime = DateTime(0, 1, 2, 3, 4, 5, 6, 7);
-      expect(constDateTime.toString() == dateTime.toString(), isTrue);
     });
 
     test('runtimeType', () {
